@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<title>Temperature Sensors</title>
+    <link href="css/site.css" rel="stylesheet">
+
+    <script src="js/momentjs/moment.min.js"></script>
+    <script src="js/jquery/jquery-2.1.0.min.js"></script>
+    <script src="js/knockout/knockout-3.0.0.js"></script>
+	<script src="js/Highstock-2.0.4/highstock.js"></script>
+    <script src="js/tempDisplay.js"></script>
+</head>
+
+<body>
+ 	<div  data-bind="with: current" >
+		<div data-bind="foreach: readings">
+			<!-- ko if: ($index() % 4 ==0) -->
+<!-- 				<div class="clearFloat"></div>
+ -->			<!-- /ko -->
+				<div style="text-align:right;"  class="currentSensorReadings">
+
+			<!-- baseline alignment is a lost cause, put it under or over something.-->
+
+					<div class="thermIdText" data-bind="text: description + ' (' + idNum +')' "></div>
+
+					<div style="float:left; width:70%; ">
+						<span class="tempText" data-bind="text: (current.temp).toFixed(1) + '&deg'"></span>
+						<span>F</span>
+					</div>
+					
+					<div style="float:right; ">
+							<span class="humidityText" data-bind="text: (current.humidity) + '%'"></span>
+					</div>
+
+					<div class="clearFloat"></div>
+					<div class="readingTime">
+						<span data-bind="text: moment(current.readingTime).fromNow()"></span> 
+						<span data-bind="if: !current.batteryOk"> - BATT LOW</span>
+					</div>
+
+				</div>
+			</div>
+
+	    </div>
+	</div>
+
+
+	<div class="clearFloat"></div>
+	<button id="refreshHighstock">Refresh Charts </button>
+
+
+	<div class="chart-container">
+		<div id="temp-highstock" class="chart-placeholder"></div>
+	</div>
+
+	<div class="chart-container">
+		<div id="humidity-highstock" class="chart-placeholder"></div>
+	</div>
+
+</body>
+
+
+</html>
