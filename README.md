@@ -4,6 +4,8 @@ A simple (prototype) web server to display temperature readings from wireless se
 Written with node/express, html/js/jquery/knockout, highstocks (for charts).
 It should be noted that this is a really old code, but it works.  I'll port this to newer frameworks and clean it up... one day...
 
+![screenshot](docs/screenshot.png)
+
 ## Prerequisites
 - node & npm
 - a source stream for temperature and humidity data (sample data included)
