@@ -27,7 +27,7 @@ The input format is very specific to my application, to use this in your own app
 you probably want to hack at or replace the node script
 
 
-###Example data
+## Example data
 ```
 2016-08-08 00.00.04,1,Batt:ok, Id:1f/1, Temp: 82.1, Hum:84
 2016-08-08 00.00.07,2,Batt:ok, Id:f3/4, Temp: 89.0, Hum:48
